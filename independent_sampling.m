@@ -1,6 +1,4 @@
 function responsibility = independent_sampling( data, N, M, mu )
-
-    % -------------------------------- Bagging phase --------------------------------- %
     
     data = [(1 : N)' data];
     data_pos_indices = data(data(:,end) == 1, 1);
@@ -34,19 +32,6 @@ function responsibility = independent_sampling( data, N, M, mu )
             end
         end
     end
-    
-    %for i = 1 : N
-    %    for curr_mu = 1 : mu
-    %        rand = -1;
-    %        while 1 == 1
-    %            rand = randi(M);
-    %            if responsibility(i,rand) == 0
-    %                break;
-    %            end
-    %        end
-    %        responsibility(i,rand) = 1;
-    %    end
-    %end
 
     responsibility = (responsibility == 1);
     
@@ -57,7 +42,6 @@ function responsibility = independent_sampling( data, N, M, mu )
             break;
         end
     end
-    % -------------------------------------------------------------------------------- %
 
 end
 
